@@ -4,12 +4,22 @@ services:
     db:
         restart: always
         image: postgres:12-alpine
-        ports:
-            - '5434:5432'
         volumes:
             - postgres_data:/var/lib/postgresql/data/
         env_file:
             - .env
+
+    web:
+        restart: always
+        build: .
+        ports:
+            - '8001:5000'
+        volumes:
+            - .:/app
+        env_file: .env
+        depends_on:
+            - db
+        command: flask run --host 0.0.0.0
 
 
 volumes:

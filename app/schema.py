@@ -5,6 +5,8 @@ from app.models import Product
 
 
 class CategorySchema(ma.SQLAlchemySchema):
+    """Схема данных категорий товара."""
+
     class Meta:
         model = Category
 
@@ -12,7 +14,10 @@ class CategorySchema(ma.SQLAlchemySchema):
     name = ma.auto_field()
     products = ma.auto_field()
 
+
 class ProductSchema(ma.SQLAlchemyAutoSchema):
+    """Схема данных товара."""
+
     class Meta:
         model = Product
         include_fk = True

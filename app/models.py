@@ -5,7 +5,7 @@ class Category(db.Model):
     """Модель данных категори товара."""
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(127), nullable=False) #  Название категории.
+    name = db.Column(db.String(127), nullable=False)  # Название категории.
     products = db.relationship('Product', backref='category', lazy=True)
 
     def __repr__(self):
@@ -21,9 +21,9 @@ class Product(db.Model):
     """Модель данных товара."""
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(127), nullable=False) #  Название товара.
-    stock_balance = db.Column(db.Integer) #  Остаток на складе.
-    sku = db.Column(db.Integer, nullable=False) #  Stock Keeping Unit
+    name = db.Column(db.String(127), nullable=False)  # Название товара.
+    stock_balance = db.Column(db.Integer)  # Остаток на складе.
+    sku = db.Column(db.Integer, nullable=False)  # Stock Keeping Unit
     category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
     def __repr__(self):
