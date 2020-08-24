@@ -1,0 +1,14 @@
+# gitignore digital-spectr
+/env/
+/venv/
+/.vscode/
+/.tox/
+/.pytest_cache/
+__pycache__/
+
+.env
+
+*.sql
+*.pyc
+*.egg
+*.log
